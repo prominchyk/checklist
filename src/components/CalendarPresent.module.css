@@ -1,0 +1,57 @@
+.buttons {
+    display: flex;
+    width: 60%;
+    margin: 0 auto;
+    justify-content: space-around;
+}
+
+h2 {
+    text-align: center;
+}
+
+table {
+    margin: 0 auto;
+    margin-bottom: 2%;
+    border: 1px solid black;
+}
+
+td {
+    border: 1px solid black;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+
+thead {
+    font-weight: bold;
+}
+
+.isWeekend {
+    color: red;
+}
+
+.isToday {
+    color: blue;
+}
+
+.hasTasks {
+    background-color: brown;
+    color: white;
+    font-weight: bold;
+}
+
+.isAutumn {
+    background: linear-gradient(to left, rgba(255, 165, 0, 1), rgba(255, 255, 0, 1));
+}
+
+.isWinter {
+    background: linear-gradient(to right, rgba(173, 216, 230, 0.5), rgba(0, 0, 255, 1));
+}
+
+.isSpring {
+    background: linear-gradient(to right, rgba(178, 243, 133, 0.5), rgb(75, 244, 53));
+}
+
+.isSummer {
+    background: linear-gradient(to left, rgba(0, 128, 0, 0.5), rgba(173, 255, 47, 1));
+}
