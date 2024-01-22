@@ -1,0 +1,84 @@
+.containerVis {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    width: 40%;
+    min-height: 100px;
+    border: 2px solid brown;
+    margin-top: -36%;
+    background-color: azure;
+    z-index: 1;
+}
+
+.containerUnvis {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .containerVis {
+        width: 95%;
+    }
+}
+
+@media (max-width: 400px) {
+    .containerVis {
+        margin-top: -100%;
+    }
+}
+
+@media (min-width: 401px) and (max-width: 600px) {
+    .containerVis {
+        margin-top: -80%;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+    .containerVis {
+        width: 80%;
+        margin-top: -50%;
+    }
+}
+
+@media (min-width: 901px) and (max-width: 1100px) {
+    .containerVis {
+        width: 60%;
+        margin-top: -40%;
+    }
+}
+
+.handWritingFont {
+    font-size: 100%;
+}
+
+.styleInput {
+    font-family: 'Caveat', cursive;
+    font-family: 'Marck Script', cursive;
+    width: 95%;
+}
+
+.styleSaveButton {
+    position: relative;
+    margin-top: 36%;
+    margin-left: 2%;
+    margin-bottom: 2%;
+    width: 95%;
+}
+
+li {
+    margin-right: 2%;
+}
+
+.styleLiButtons {
+    width: 35px;
+    height: 18px;
+    margin-right: 1%;
+}
+
+.styleLiDone {
+   text-decoration: line-through;
+}
+
+.styleLiNotDone {
+    text-decoration: none;
+ }
+
