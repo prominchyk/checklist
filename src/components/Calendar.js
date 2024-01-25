@@ -24,6 +24,14 @@ function Calendar({changeBackgroundImage, monthObj, localStorageObject}) {
     const refCounterCells = useRef(1);
     const refCounterDays = useRef(1);
 
+    function addZero(num) {
+        if (num >= 1 && num <= 9) {
+         return '0' + num;
+        } else {
+         return num;
+        }
+     }
+
     function createCellsArr() {
 
         while (refCellsAmount.current % 7 !== 0) {
@@ -33,7 +41,7 @@ function Calendar({changeBackgroundImage, monthObj, localStorageObject}) {
         const firstCellsArr = [];
         for(let i = refCellsAmount.current; i >= 1; i--) {
             firstCellsArr.push({
-            id: year.current.toString() + (month.current + 1) + refCounterCells.current,
+            id: year.current.toString() + addZero(month.current + 1) + addZero(refCounterCells.current),
             value: refCounterCells.current >= firstDayOfWeek.current && refCounterCells.current < lastDay.current + firstDayOfWeek.current ? refCounterDays.current : null,
             hasTasks: false,
             isToday: false,
@@ -139,6 +147,13 @@ function Calendar({changeBackgroundImage, monthObj, localStorageObject}) {
 
     }
 
+    function handleClickCancelButton() {
+        setVisability(false);
+        const copyArrValues = [...arrValues];
+        copyArrValues.length = 0;
+        setArrValues(copyArrValues);
+    }
+
     function handleClickCell(event) {
         eventId.current = event.target.id;
         setEventText(event.target.textContent);
@@ -157,7 +172,7 @@ function Calendar({changeBackgroundImage, monthObj, localStorageObject}) {
 
     return <div>
         <CalendarPresent year = {year.current} month = {month.current} cellsArr = {cellsArr} handleClickForward = {handleClickForward} handleClickBack = {handleClickBack} monthObj = {monthObj} handleClickCell = {handleClickCell} />
-        <Checklist month={month.current + 1} year={year.current} eventText={eventText} eventId={eventId.current} visability={visability} arrValues={arrValues} setArrValues={setArrValues} handleClickSaveButton={handleClickSaveButton} />
+        <Checklist month={month.current + 1} year={year.current} eventText={eventText} eventId={eventId.current} visability={visability} arrValues={arrValues} setArrValues={setArrValues} handleClickSaveButton={handleClickSaveButton} handleClickCancelButton={handleClickCancelButton} />
     </div>
 
 }

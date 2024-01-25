@@ -2,7 +2,7 @@ import React from "react";
 import styles from './ChecklistPresent.module.css';
 
 
-function ChecklistPresent({month, year, eventText, inputValue, createArrValues, handlerInputChange, CreateLi, visability, handleClickSaveButton, refInput}) {
+function ChecklistPresent({month, year, eventText, inputValue, createArrValues, handlerInputChange, CreateLi, visability, handleClickSaveButton, handleClickCancelButton, refInput}) {
 
 function addZero(num) {
    if (num >= 1 && num <= 9) {
@@ -19,6 +19,7 @@ return <div className={visability === true ? styles.containerVis : styles.contai
     <CreateLi />
     </ul>
     <button onClick={handleClickSaveButton} className={styles.styleSaveButton}>Зберегти</button>
+    <button onClick={handleClickCancelButton} className={styles.styleCancelButton}>Відміна</button>
 </div>
 
 }

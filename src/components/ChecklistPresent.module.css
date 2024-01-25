@@ -61,7 +61,16 @@
     margin-top: 36%;
     margin-left: 2%;
     margin-bottom: 2%;
-    width: 95%;
+    width: 47%;
+}
+
+.styleCancelButton {
+    position: relative;
+    margin-top: 36%;
+    margin-left: 1%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    width: 47%;
 }
 
 li {
