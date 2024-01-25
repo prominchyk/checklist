@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/checklist/static/css/main.d63ef3ca.css",
-    "main.js": "/checklist/static/js/main.f31eee04.js",
+    "main.css": "/checklist/static/css/main.916dbd82.css",
+    "main.js": "/checklist/static/js/main.4d491bb9.js",
     "static/js/787.7c3a54e3.chunk.js": "/checklist/static/js/787.7c3a54e3.chunk.js",
     "static/media/spring1.jpg": "/checklist/static/media/spring1.a17546cebf368841fffc.jpg",
     "static/media/autumn1.jpg": "/checklist/static/media/autumn1.a50b91173e95153277ef.jpg",
@@ -16,12 +16,12 @@
     "static/media/spring2.jpg": "/checklist/static/media/spring2.c0359039bbcd0f1dd72a.jpg",
     "static/media/autumn2.jpg": "/checklist/static/media/autumn2.c0581a40158220a02cc3.jpg",
     "index.html": "/checklist/index.html",
-    "main.d63ef3ca.css.map": "/checklist/static/css/main.d63ef3ca.css.map",
-    "main.f31eee04.js.map": "/checklist/static/js/main.f31eee04.js.map",
+    "main.916dbd82.css.map": "/checklist/static/css/main.916dbd82.css.map",
+    "main.4d491bb9.js.map": "/checklist/static/js/main.4d491bb9.js.map",
     "787.7c3a54e3.chunk.js.map": "/checklist/static/js/787.7c3a54e3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d63ef3ca.css",
-    "static/js/main.f31eee04.js"
+    "static/css/main.916dbd82.css",
+    "static/js/main.4d491bb9.js"
   ]
 }
