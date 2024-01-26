@@ -15,7 +15,7 @@ function Checklist({month, year, eventText, visability, handleClickSaveButton, h
     function createArrValues() {
         const copy = [...arrValues];
         if (inputValue.trim()) {
-            copy.push([inputValue, 'notDone', refLiId.current]);
+            copy.push([inputValue, false, refLiId.current]);
             refLiId.current = refLiId.current + 1;
             setArrValues(copy);
             setInputValue('');
@@ -29,7 +29,7 @@ function Checklist({month, year, eventText, visability, handleClickSaveButton, h
             console.log(eventLi.id);
         console.log(String(elem[2]));
             if(elem.includes(eventLi.textContent) && String(elem[2]) === eventLi.id) {
-            elem[1] = 'done';
+                elem[1] = !elem[1];
            }
         }
         setArrValues(copy);
@@ -37,14 +37,24 @@ function Checklist({month, year, eventText, visability, handleClickSaveButton, h
 
     function handleClickDeleteButton(event) {
         const copy = [...arrValues];
-        copy.splice(copy.indexOf(event.target.parentNode.firstChild.textContent), 1);
+        const eventLi = event.target.parentNode.firstChild;
+        for(let elem of copy) {
+           if(elem.includes(eventLi.textContent) && String(elem[2]) === eventLi.id) {
+            copy.splice(copy.indexOf(elem), 1);
+           }
+        }
         setArrValues(copy);
     }
 
     function handleClickChangeButton(event) {
-        setInputValue(event.target.parentNode.firstChild.textContent);
+        const eventLi = event.target.parentNode.firstChild;
+        setInputValue(eventLi.textContent);
         const copy = [...arrValues];
-        copy.splice(copy.indexOf(event.target.parentNode.firstChild.textContent), 1);
+        for(let elem of copy) {
+            if(elem.includes(eventLi.textContent) && String(elem[2]) === eventLi.id) {
+            copy.splice(copy.indexOf(elem), 1);
+            }
+        }
         setArrValues(copy);
         refInput.current.focus();
     }
@@ -52,7 +62,7 @@ function Checklist({month, year, eventText, visability, handleClickSaveButton, h
     function CreateLi() {
         const res = arrValues.map((elem, index) => {
             return <div key={index}>
-            <li id={elem[2]} className={elem[1] === 'done' ? styles.styleLiDone : styles.styleLiNotDone}>{elem[0]}</li>
+            <li id={elem[2]} className={elem[1] === true ? styles.styleLiDone : styles.styleLiNotDone}>{elem[0]}</li>
             <button onClick={handleClickChangeButton} className={styles.styleLiButtons}>Ред</button>
             <button onClick={handleClickDeleteButton} className={styles.styleLiButtons}>Х</button>
             <button onClick={handleClickDoneButton} className={styles.styleLiButtons}>V</button>
