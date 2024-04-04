@@ -61,7 +61,7 @@ function CalendarPresent({year, month, cellsArr, handleClickForward, handleClick
            <td key={elem[3].id} id={elem[3].id} className={styleForToday(elem[3])} onClick={handleClickCell}>{elem[3].value}</td>
            <td key={elem[4].id} id={elem[4].id} className={styleForToday(elem[4])} onClick={handleClickCell}>{elem[4].value}</td>
            <td key={elem[5].id} id={elem[5].id} className={styleForWeekend(elem[5])} onClick={handleClickCell}>{elem[5].value}</td>
-           <td key={elem[6].id} id={elem[5].id} className={styleForWeekend(elem[6])} onClick={handleClickCell}>{elem[6].value}</td>
+           <td key={elem[6].id} id={elem[6].id} className={styleForWeekend(elem[6])} onClick={handleClickCell}>{elem[6].value}</td>
            </tr>
            }
            return elem;
