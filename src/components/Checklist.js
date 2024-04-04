@@ -26,8 +26,9 @@ function Checklist({month, year, eventText, visability, handleClickSaveButton, h
         const copy = [...arrValues];
         const eventLi = event.target.parentNode.firstChild;
         for(let elem of copy) {
-            console.log(eventLi.id);
-        console.log(String(elem[2]));
+            //console.log(eventLi.id);
+            //console.log(String(elem[2]));
+            //console.log(elem);
             if(elem.includes(eventLi.textContent) && String(elem[2]) === eventLi.id) {
                 elem[1] = !elem[1];
            }

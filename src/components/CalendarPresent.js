@@ -6,6 +6,7 @@ function CalendarPresent({year, month, cellsArr, handleClickForward, handleClick
     function Rows() {
 
         const copy = [...cellsArr];
+        //console.log(cellsArr);
         const firstPart = copy.splice(0, 7);
         const secondPart = copy.splice(0, 7);
         const thirdPart = copy.splice(0, 7);
@@ -18,13 +19,36 @@ function CalendarPresent({year, month, cellsArr, handleClickForward, handleClick
         function styleForToday(data) {
             const style1 = styles.isToday;
             const style2 = styles.hasTasks;
-            if(data.isToday && !data.hasTasks) {
+            const style3 = styles.tasksDone;
+            if(data.isToday && !data.hasTasks && !data.tasksDone) {
                 return style1;
             }
-            else if(data.hasTasks) {
+            else if(data.hasTasks && !data.tasksDone) {
                 return style2;
+            }
+            else if(data.hasTasks && data.tasksDone) {
+                return style3;
             } else {
                 return null;
+            }
+        }
+
+        function styleForWeekend(data) {
+            const style1 = styles.isWeekend;
+            const style2 = styles.hasTasks;
+            const style3 = styles.tasksDone;
+            const style4 = styles.isToday;
+            if(!data.isToday && !data.hasTasks && !data.tasksDone) {
+                return style1;
+            }
+            if(data.isToday && !data.hasTasks && !data.tasksDone) {
+                return style4;
+            }
+            if(data.hasTasks && !data.tasksDone) {
+                return style2;
+            }
+            if(data.hasTasks && data.tasksDone) {
+                return style3;
             }
         }
 
@@ -36,8 +60,8 @@ function CalendarPresent({year, month, cellsArr, handleClickForward, handleClick
            <td key={elem[2].id} id={elem[2].id} className={styleForToday(elem[2])} onClick={handleClickCell}>{elem[2].value}</td>
            <td key={elem[3].id} id={elem[3].id} className={styleForToday(elem[3])} onClick={handleClickCell}>{elem[3].value}</td>
            <td key={elem[4].id} id={elem[4].id} className={styleForToday(elem[4])} onClick={handleClickCell}>{elem[4].value}</td>
-           <td key={elem[5].id} id={elem[5].id} className={elem[5].hasTasks ? styles.hasTasks : styles.isWeekend} onClick={handleClickCell}>{elem[5].value}</td>
-           <td key={elem[6].id} id={elem[6].id} className={elem[6].hasTasks ? styles.hasTasks : styles.isWeekend} onClick={handleClickCell}>{elem[6].value}</td>
+           <td key={elem[5].id} id={elem[5].id} className={styleForWeekend(elem[5])} onClick={handleClickCell}>{elem[5].value}</td>
+           <td key={elem[6].id} id={elem[5].id} className={styleForWeekend(elem[6])} onClick={handleClickCell}>{elem[6].value}</td>
            </tr>
            }
            return elem;

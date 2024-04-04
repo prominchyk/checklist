@@ -45,6 +45,7 @@ function Calendar({changeBackgroundImage, monthObj, localStorageObject}) {
             value: refCounterCells.current >= firstDayOfWeek.current && refCounterCells.current < lastDay.current + firstDayOfWeek.current ? refCounterDays.current : null,
             hasTasks: false,
             isToday: false,
+            tasksDone: false,
             })
             if(refCounterCells.current >= firstDayOfWeek.current && refCounterCells.current < lastDay.current + firstDayOfWeek.current) {
                 refCounterDays.current = refCounterDays.current + 1;
@@ -59,6 +60,8 @@ function Calendar({changeBackgroundImage, monthObj, localStorageObject}) {
             if(window.localStorage) {
                 if(window.localStorage[elem.id]) {
                     elem.hasTasks = true;
+                } if (window.localStorage[elem.id + 'done']) {
+                    elem.tasksDone = true;
                 }
             }
         } 
@@ -114,11 +117,13 @@ function Calendar({changeBackgroundImage, monthObj, localStorageObject}) {
         const [eventText, setEventText] = useState('');
         const [visability, setVisability ] = useState(false);
         const [arrValues, setArrValues] = useState([]);
-
+        //const [flag, setFlag] = useState(true);
 
     function handleClickSaveButton() {
         setVisability(false);
-        
+
+        const copyArrValues = [...arrValues];
+
         if(arrValues.length >= 1) {
 
         localStorage.setItem(eventId.current, JSON.stringify(arrValues));
@@ -127,24 +132,32 @@ function Calendar({changeBackgroundImage, monthObj, localStorageObject}) {
         for(let elem of copyCellsArr) {
             if(elem.id === eventId.current) {
                 elem.hasTasks = true;
+                for(let value of copyArrValues) {
+                    if(value[1] === false) {
+                        elem.tasksDone = false;
+                        break;
+                    } else {
+                        elem.tasksDone = true;
+                        localStorage.setItem(eventId.current + 'done', true);
+                    }
+                }
             }
         }
         setCellsArr(copyCellsArr);
         } else {
             localStorage.removeItem(eventId.current);
+            localStorage.removeItem(eventId.current + 'done');
             const copyCellsArr = [...cellsArr];
             for(let elem of copyCellsArr) {
                 if(elem.id === eventId.current) {
                     elem.hasTasks = false;
+                    elem.tasksDone = false;
                 }
             }
             setCellsArr(copyCellsArr);
         }
-
-        const copyArrValues = [...arrValues];
         copyArrValues.length = 0;
         setArrValues(copyArrValues);
-
     }
 
     function handleClickCancelButton() {

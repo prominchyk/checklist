@@ -41,6 +41,12 @@ thead {
     font-weight: bold;
 }
 
+.tasksDone {
+    background-color: green;
+    color: white;
+    font-weight: bold;
+}
+
 .isAutumn {
     background: linear-gradient(to left, rgba(255, 165, 0, 1), rgba(255, 255, 0, 1));
 }
