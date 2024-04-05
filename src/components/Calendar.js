@@ -135,6 +135,7 @@ function Calendar({changeBackgroundImage, monthObj, localStorageObject}) {
                 for(let value of copyArrValues) {
                     if(value[1] === false) {
                         elem.tasksDone = false;
+                        localStorage.removeItem(eventId.current + 'done');
                         break;
                     } else {
                         elem.tasksDone = true;
