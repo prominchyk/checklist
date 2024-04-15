@@ -16,39 +16,39 @@ function CalendarPresent({year, month, cellsArr, handleClickForward, handleClick
         const cellsArrDivided = [];
         cellsArrDivided.push(firstPart, secondPart, thirdPart, fourthPart, fifthPart, sixPart);
 
+        const style1 = styles.isToday;
+        const style2 = styles.hasTasks;
+        const style3 = styles.tasksDone;
+        const style4 = styles.isTodayTasksDone;
+        const style5 = styles.isTodayHasTasks;
+        const style6 = styles.isWeekend;
+
         function styleForToday(data) {
-            const style1 = styles.isToday;
-            const style2 = styles.hasTasks;
-            const style3 = styles.tasksDone;
             if(data.isToday && !data.hasTasks && !data.tasksDone) {
                 return style1;
             }
             else if(data.hasTasks && !data.tasksDone) {
-                return style2;
+                return data.isToday ? style5 : style2; 
             }
-            else if(data.hasTasks && data.tasksDone) {
-                return style3;
+            else if(data.tasksDone) {
+                return data.isToday ? style4 : style3;
             } else {
                 return null;
             }
         }
 
         function styleForWeekend(data) {
-            const style1 = styles.isWeekend;
-            const style2 = styles.hasTasks;
-            const style3 = styles.tasksDone;
-            const style4 = styles.isToday;
             if(!data.isToday && !data.hasTasks && !data.tasksDone) {
-                return style1;
+                return style6;
             }
             if(data.isToday && !data.hasTasks && !data.tasksDone) {
-                return style4;
+                return style1;
             }
             if(data.hasTasks && !data.tasksDone) {
-                return style2;
+                return data.isToday ? style5 : style2;
             }
-            if(data.hasTasks && data.tasksDone) {
-                return style3;
+            if(data.tasksDone) {
+                return data.isToday ? style4 : style3;
             }
         }
 

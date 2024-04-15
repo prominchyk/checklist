@@ -31,7 +31,7 @@ thead {
 }
 
 .isToday {
-    color: blue;
+    color: black;
     font-weight: bold;
 }
 
@@ -41,9 +41,21 @@ thead {
     font-weight: bold;
 }
 
+.isTodayHasTasks {
+    background-color: brown;
+    color: black;
+    font-weight: bold;
+}
+
 .tasksDone {
     background-color: green;
     color: white;
+    font-weight: bold;
+}
+
+.isTodayTasksDone {
+    background-color: green;
+    color: black;
     font-weight: bold;
 }
 
