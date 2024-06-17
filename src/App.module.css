@@ -11,12 +11,14 @@ header {
     font-size: 200%;
     margin: 0 auto;
     margin-bottom: 1%;
+    padding-top: 2%;
 }
 
 body {
     width: 80%;
     min-height: 95vh;
     margin: 0 auto;
+    margin-top: 1%;
     background-color: rgb(245, 245, 237);
     /*background-image: url('../src/autumn1.jpg');*/
     background-repeat: no-repeat;

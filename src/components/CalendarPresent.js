@@ -1,5 +1,5 @@
 import React from "react";
-import styles from './CalendarPresent.module.css';
+import styles from './CalendarPresent.module.css'; 
 
 function CalendarPresent({year, month, cellsArr, handleClickForward, handleClickBack, monthObj, handleClickCell}) {
 

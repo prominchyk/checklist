@@ -1,6 +1,6 @@
 import React, {useState, useRef} from "react";
 import CalendarPresent from "./CalendarPresent";
-import Checklist from './Checklist';
+import Checklist from './Checklist'; 
 
 
 function Calendar({changeBackgroundImage, monthObj, localStorageObject}) {
@@ -56,7 +56,7 @@ function Calendar({changeBackgroundImage, monthObj, localStorageObject}) {
         refCounterDays.current = 1;
 
         for(let elem of firstCellsArr) {
-            elem.value === date.current ? elem.isToday = true : elem.isToday = false;
+            elem.value === date.current && month.current === new Date().getMonth() ? elem.isToday = true : elem.isToday = false;
             if(window.localStorage) {
                 if(window.localStorage[elem.id]) {
                     elem.hasTasks = true;
